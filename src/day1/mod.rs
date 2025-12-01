@@ -26,7 +26,7 @@ fn solve_part2(lines: Vec<&str>) -> u32 {
         })
         .fold((50, 0 as u32), |acc, x| {
             let spins = (x.abs() / 100) as u32;
-            let r = (acc.0 + x % 100 + 100) % 100;
+            let r = (acc.0 + x).rem_euclid(100);
             let changed_sign = match (x, r) {
                 (..0, r) if r > acc.0 && acc.0 != 0 => 1,
                 (1.., r) if r < acc.0 && acc.0 != 0 => 1,
