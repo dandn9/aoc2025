@@ -9,7 +9,7 @@ fn solve_part1(lines: Vec<&str>) -> u32 {
             }
         })
         .fold((50, 0 as u32), |acc, x| {
-            let r = (acc.0 + x + 100) % 100;
+            let r = (acc.0 + x).rem_euclid(100);
             (r, acc.1 + if r == 0 { 1 } else { 0 })
         })
         .1
