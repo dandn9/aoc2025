@@ -28,6 +28,7 @@ fn solve_part2(lines: Vec<&str>) -> u64 {
         .filter(|s| {
             let mut slice = &s[..s.len() / 2];
             while slice.len() > 0 {
+                // stinky
                 if s.len() % slice.len() == 0 && s.split(slice).collect::<String>().is_empty() {
                     return true;
                 }
